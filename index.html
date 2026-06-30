@@ -1,5 +1,302 @@
-<html>
-  <body>
-    <h1>NOTAG</h1>
-  </body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐱 猫猫小窝 - 我的个人主页</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=Nunito:wght@400;600;700;800&display=swap');
+
+  :root {
+    --pink: #ff85a1;
+    --pink-light: #ffc2d1;
+    --purple: #c77dff;
+    --purple-light: #e0aaff;
+    --yellow: #ffd166;
+    --green: #06d6a0;
+    --blue: #4cc9f0;
+    --bg: #fff0f5;
+    --card-bg: #fff8fc;
+    --text: #3d2c35;
+    --shadow: 0 8px 32px rgba(199,125,255,0.13);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', 'ZCOOL XiaoWei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ─── Floating paws background ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(255,133,161,.10) 0%, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(199,125,255,.10) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(76,201,240,.07) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── Nav ─── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 48px;
+    background: rgba(255,240,245,.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--pink-light);
+    box-shadow: 0 2px 16px rgba(255,133,161,.12);
+  }
+  .nav-logo { font-size: 1.5rem; font-weight: 800; color: var(--pink); letter-spacing: 2px; }
+  .nav-logo span { color: var(--purple); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    text-decoration: none; color: var(--text); font-weight: 700; font-size: .95rem;
+    padding: 6px 16px; border-radius: 20px; transition: all .25s;
+  }
+  .nav-links a:hover { background: var(--pink-light); color: var(--pink); transform: translateY(-2px); }
+
+  /* ─── Hero ─── */
+  .hero {
+    position: relative; z-index: 1;
+    text-align: center; padding: 90px 24px 70px;
+  }
+  .hero-emoji { font-size: 6rem; animation: float 3s ease-in-out infinite; display: inline-block; }
+  @keyframes float {
+    0%,100% { transform: translateY(0) rotate(-4deg); }
+    50%      { transform: translateY(-18px) rotate(4deg); }
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 800; margin-top: 16px;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    margin-top: 16px; font-size: 1.15rem; color: #9b6a7a;
+    max-width: 560px; margin-inline: auto; line-height: 1.7;
+  }
+  .hero-btns { margin-top: 32px; display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 30px; border-radius: 30px; font-weight: 800; font-size: 1rem;
+    border: none; cursor: pointer; transition: all .25s; text-decoration: none;
+  }
+  .btn-primary { background: linear-gradient(135deg, var(--pink), var(--purple)); color: #fff; box-shadow: 0 6px 20px rgba(255,133,161,.40); }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(255,133,161,.55); }
+  .btn-secondary { background: #fff; color: var(--purple); border: 2px solid var(--purple-light); }
+  .btn-secondary:hover { background: var(--purple-light); transform: translateY(-3px); }
+
+  /* ─── Decorative paw trail ─── */
+  .paw-trail {
+    display: flex; justify-content: center; gap: 10px;
+    margin: 0 auto 16px; opacity: .35; font-size: 1.3rem;
+  }
+
+  /* ─── Section ─── */
+  section { position: relative; z-index: 1; padding: 64px 24px; max-width: 1100px; margin: 0 auto; }
+  .section-title {
+    text-align: center; font-size: 2rem; font-weight: 800; margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .section-sub { text-align: center; color: #9b6a7a; margin-bottom: 48px; font-size: 1.05rem; }
+
+  /* ─── Project Cards ─── */
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+  .card {
+    background: var(--card-bg);
+    border-radius: 28px;
+    padding: 36px 32px;
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+    transition: all .3s;
+    position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: ''; position: absolute; inset: 0; border-radius: 26px;
+    background: linear-gradient(135deg, var(--pink-light), var(--purple-light));
+    opacity: 0; transition: opacity .3s; z-index: 0;
+  }
+  .card:hover { transform: translateY(-8px); box-shadow: 0 20px 48px rgba(199,125,255,.2); border-color: var(--purple-light); }
+  .card:hover::before { opacity: .08; }
+  .card > * { position: relative; z-index: 1; }
+  .card-icon { font-size: 3.5rem; margin-bottom: 16px; display: block; }
+  .card h3 { font-size: 1.45rem; font-weight: 800; margin-bottom: 10px; color: var(--text); }
+  .card p { color: #9b6a7a; line-height: 1.7; margin-bottom: 20px; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .tag {
+    padding: 4px 14px; border-radius: 14px; font-size: .82rem; font-weight: 700;
+    background: var(--pink-light); color: var(--pink);
+  }
+  .tag.purple { background: var(--purple-light); color: var(--purple); }
+  .tag.yellow { background: #fff3cd; color: #b8860b; }
+  .tag.green  { background: #d4f7ef; color: #06a07b; }
+  .card-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--purple); font-weight: 800; text-decoration: none; font-size: .95rem;
+    padding: 10px 22px; background: var(--purple-light); border-radius: 20px; transition: all .25s;
+  }
+  .card-link:hover { background: var(--purple); color: #fff; }
+
+  /* ─── About ─── */
+  .about-inner {
+    display: flex; align-items: center; gap: 60px; flex-wrap: wrap; justify-content: center;
+  }
+  .about-avatar {
+    width: 180px; height: 180px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 6rem; box-shadow: 0 8px 32px rgba(199,125,255,.3);
+    animation: float 4s ease-in-out infinite;
+  }
+  .about-text { max-width: 460px; }
+  .about-text h2 { font-size: 1.9rem; font-weight: 800; margin-bottom: 12px; color: var(--text); }
+  .about-text p { color: #9b6a7a; line-height: 1.8; margin-bottom: 14px; }
+  .skills-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+  .skill-chip {
+    padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: .88rem;
+    border: 2px solid; transition: all .2s; cursor: default;
+  }
+  .skill-chip:hover { transform: scale(1.07); }
+  .skill-chip.c1 { border-color: var(--pink); color: var(--pink); background: #fff5f8; }
+  .skill-chip.c2 { border-color: var(--purple); color: var(--purple); background: #faf5ff; }
+  .skill-chip.c3 { border-color: var(--yellow); color: #b8860b; background: #fffbf0; }
+  .skill-chip.c4 { border-color: var(--green); color: #06a07b; background: #f0fdf9; }
+  .skill-chip.c5 { border-color: var(--blue); color: #0a90b8; background: #f0faff; }
+
+  /* ─── Footer ─── */
+  footer {
+    position: relative; z-index: 1;
+    text-align: center; padding: 32px 24px 40px;
+    color: #c99eb0; font-size: .9rem;
+    border-top: 2px solid var(--pink-light);
+    background: rgba(255,240,245,.6);
+  }
+  footer span { color: var(--pink); font-weight: 700; }
+
+  /* ─── Scroll animations ─── */
+  .reveal { opacity: 0; transform: translateY(36px); transition: all .7s cubic-bezier(.16,1,.3,1); }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ─── Floating stars ─── */
+  .star { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; animation: twinkle 2.5s ease-in-out infinite; }
+  @keyframes twinkle { 0%,100%{opacity:.15;transform:scale(1)} 50%{opacity:.5;transform:scale(1.5)} }
+</style>
+</head>
+<body>
+
+<!-- Floating stars -->
+<div class="star" style="width:6px;height:6px;background:var(--pink);top:12%;left:8%;animation-delay:0s"></div>
+<div class="star" style="width:4px;height:4px;background:var(--purple);top:28%;left:92%;animation-delay:.8s"></div>
+<div class="star" style="width:8px;height:8px;background:var(--yellow);top:55%;left:5%;animation-delay:1.4s"></div>
+<div class="star" style="width:5px;height:5px;background:var(--blue);top:70%;left:88%;animation-delay:.3s"></div>
+<div class="star" style="width:6px;height:6px;background:var(--green);top:85%;left:22%;animation-delay:2s"></div>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-logo">🐱 <span>猫猫</span>小窝</div>
+  <div class="nav-links">
+    <a href="#projects">我的项目</a>
+    <a href="#about">关于我</a>
+    <a href="cat-match.html" target="_blank">玩连连看</a>
+    <a href="desktop-pet.html" target="_blank">桌面宠物</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="paw-trail">🐾🐾🐾🐾🐾</div>
+  <div class="hero-emoji">🐱</div>
+  <h1>嗨！我是猫猫开发者 ✨</h1>
+  <p>用代码编织可爱世界 · 每一行都藏着一只猫咪的心跳 💕<br>欢迎来到我的小窝，探索充满奇思妙想的作品！</p>
+  <div class="hero-btns">
+    <a href="#projects" class="btn btn-primary">🎮 探索项目</a>
+    <a href="#about" class="btn btn-secondary">🐾 了解我</a>
+  </div>
+</div>
+
+<!-- Projects -->
+<section id="projects">
+  <h2 class="section-title reveal">✨ 我的项目</h2>
+  <p class="section-sub reveal">用爱做的每一个小作品，都是认真玩耍的证明 🌸</p>
+  <div class="projects">
+
+    <!-- Cat Match -->
+    <div class="card reveal">
+      <span class="card-icon">🐱</span>
+      <h3>猫咪连连看</h3>
+      <p>经典连连看玩法，可爱猫咪主题！支持三路径消除算法、智能提示、计时挑战、洗牌重置，挑战自己的反应速度！</p>
+      <div class="card-tags">
+        <span class="tag">🎮 益智游戏</span>
+        <span class="tag purple">纯JS实现</span>
+        <span class="tag yellow">⏱ 计时挑战</span>
+        <span class="tag green">💡 智能提示</span>
+      </div>
+      <a href="cat-match.html" target="_blank" class="card-link">🎮 立即游玩 →</a>
+    </div>
+
+    <!-- Desktop Pet -->
+    <div class="card reveal">
+      <span class="card-icon">🐾</span>
+      <h3>桌面宠物</h3>
+      <p>可爱的像素风桌面猫咪！支持拖拽、丰富情绪状态、互动对话、喂食/玩耍/睡觉，陪伴你的每一天！</p>
+      <div class="card-tags">
+        <span class="tag">💻 桌面应用</span>
+        <span class="tag purple">Canvas动画</span>
+        <span class="tag yellow">🖱 可拖拽</span>
+        <span class="tag green">💬 互动对话</span>
+      </div>
+      <a href="desktop-pet.html" target="_blank" class="card-link">🐾 召唤宠物 →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-avatar reveal">🐱</div>
+    <div class="about-text reveal">
+      <h2>关于我 ✨</h2>
+      <p>一个热爱猫咪、热爱代码的开发者 🐾<br>相信每段代码都应该充满温度与创意。</p>
+      <p>闲暇时喜欢做一些可爱的小项目，把脑子里冒出来的奇怪想法变成真实存在的东西。</p>
+      <div class="skills-list">
+        <span class="skill-chip c1">HTML / CSS</span>
+        <span class="skill-chip c2">JavaScript</span>
+        <span class="skill-chip c3">Canvas 动画</span>
+        <span class="skill-chip c4">游戏逻辑</span>
+        <span class="skill-chip c5">可爱设计</span>
+        <span class="skill-chip c1">猫咪学</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>🐾 Made with <span>♥</span> and lots of cat energy · 2025</p>
+  <p style="margin-top:8px">每一行代码都有一只猫咪守护 🐱✨</p>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver(els => {
+  els.forEach((el, i) => {
+    if (el.isIntersecting) {
+      setTimeout(() => el.target.classList.add('visible'), i * 120);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
 </html>
