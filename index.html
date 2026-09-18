@@ -1,82 +1,107 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NOTAG</title>
+<title>Index of /public/</title>
 <style>
-:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;color:#24332f;background:#f5f7f5;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button,a,input,select{outline-offset:4px}button,a{ -webkit-tap-highlight-color:transparent}button{cursor:pointer}header{border-bottom:1px solid #dfe5df;background:#fff}header>div{max-width:1160px;margin:auto;padding:24px 28px;display:flex;align-items:center;gap:12px}.logo{display:grid;place-items:center;background:#266b50;color:white;border-radius:12px;width:40px;height:40px;font-size:24px}.brand{font-weight:700;letter-spacing:-.5px}.brand small{font-weight:400;color:#849088;margin-left:12px}main{max-width:1160px;margin:0 auto;padding:56px 28px}h1{font-size:36px;letter-spacing:-1px;margin:0 0 12px}.intro{color:#738078;line-height:1.7;margin:0}.stats{margin:22px 0 32px;color:#4c6557;font-size:14px}.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}input,select{border:1px solid #dce3dd;background:white;border-radius:9px;padding:12px 14px;color:inherit}input{flex:1;min-width:180px}input:focus,select:focus{outline:2px solid #92b4a0}nav{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:18px;font-size:14px}nav button{border:0;background:transparent;color:#266b50;padding:6px}nav span{color:#94a197}.panel{background:white;border:1px solid #dfe5df;border-radius:14px;overflow:hidden}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;text-align:left;white-space:nowrap}th{background:#fafbf9;color:#839087;font-size:12px;font-weight:500;padding:15px 24px}td{border-top:1px solid #edf0ec;padding:18px 24px;font-size:14px}tr:hover td{background:#fafcf9}.file-name{border:0;background:transparent;display:flex;align-items:center;gap:14px;color:#263f30;text-align:left;padding:0;max-width:480px}.file-name .name{overflow:hidden;text-overflow:ellipsis}.file-icon{background:#edf4ee;color:#487256;display:grid;place-items:center;min-width:40px;height:44px;border-radius:8px;font-size:11px;font-weight:700}.muted{color:#88948c}.actions{display:flex;gap:16px}a,.actions button{color:#377456;text-decoration:none}.actions button{border:0;background:none;padding:0}a:hover,.actions button:hover{text-decoration:underline}.empty{padding:70px 24px;text-align:center;color:#839087}.bottom{display:flex;justify-content:space-between;gap:16px;padding:17px 24px;border-top:1px solid #edf0ec;color:#859088;font-size:12px}footer{font-size:12px;color:#8b968e;margin-top:24px}dialog{border:1px solid #dfe5df;border-radius:16px;padding:0;width:min(900px,92vw);max-height:88vh;box-shadow:0 24px 90px #16291b33}dialog::backdrop{background:#18291fc0;backdrop-filter:blur(3px)}.dialog-head{display:flex;align-items:center;gap:20px;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #e6ebe5}.dialog-head h2{font-size:17px;margin:0;overflow-wrap:anywhere}.close{border:0;background:#eff3ee;border-radius:8px;padding:8px 12px}.preview{padding:24px;min-height:180px;overflow:auto}.preview img,.preview video{display:block;max-width:100%;max-height:65vh;margin:auto}.preview audio{width:100%}.preview pre{white-space:pre-wrap;overflow-wrap:anywhere;margin:0;font:14px/1.7 ui-monospace,monospace}.preview iframe{width:100%;height:60vh;border:0}.preview p{color:#738078;line-height:1.8}.dialog-foot{padding:16px 24px;border-top:1px solid #e6ebe5;display:flex;gap:24px;font-size:14px}@media(max-width:600px){main{padding:32px 16px}header>div{padding:18px 16px}.brand small{display:none}h1{font-size:28px}td,th{padding:14px 16px}.type-col{display:none}.file-name{max-width:190px}.actions{gap:12px}.bottom{padding:16px}select{flex:1}.toolbar input{flex-basis:100%}}
+body { margin: 24px; color: #222; background: #fff; font-family: Arial, sans-serif; }
+h1 { font-size: 24px; font-weight: 500; overflow-wrap: anywhere; }
+table { width: 100%; border-collapse: collapse; font: 14px/1.8 monospace; }
+th, td { padding: 4px 12px; text-align: left; }
+th:first-child, td:first-child { padding-left: 0; overflow-wrap: anywhere; }
+th { border-bottom: 1px solid #aaa; font-weight: normal; }
+td:last-child { width: 180px; white-space: nowrap; }
+a { color: #005bbb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+footer { margin-top: 16px; padding-top: 12px; border-top: 1px solid #aaa; color: #666; font-size: 12px; }
+@media (max-width: 480px) { body { margin: 16px; } th, td { padding-right: 0; } td:last-child { width: auto; padding-left: 16px; } }
 </style>
 </head>
 <body>
-<header><div>NOTAG</div></header>
-<p></p>
-<section class="panel" aria-label="资源列表"><div class="table-wrap"><table><thead><tr><th scope="col">文件名称</th><th scope="col" class="type-col">类型</th><th scope="col">操作</th></tr></thead><tbody id="files"></tbody></table></div><div id="empty" class="empty" hidden></div><div class="bottom"><span id="count" role="status"></span></div></section>
-
-</main>
-
+<h1 id="heading">Index of /public/</h1>
+<table aria-label="文件目录">
+<thead><tr><th scope="col">Name</th><th scope="col">Last modified</th></tr></thead>
+<tbody id="listing">
+{%- assign public_files = site.static_files | sort: 'path' -%}
+{%- for file in public_files -%}
+  {%- assign prefix = file.path | slice: 0, 8 -%}
+  {%- if prefix == '/public/' %}
+<tr><td><a href="{{ file.path | relative_url | escape }}">{{ file.path | remove_first: '/public/' | escape }}</a></td><td>{{ file.modified_time | date: '%Y-%m-%d %H:%M' }}</td></tr>
+  {%- endif -%}
+{%- endfor %}
+</tbody>
+</table>
+<p id="status" role="status" hidden></p>
+<footer>NOTAG</footer>
+<script id="resource-data" type="application/json">[
+{%- assign separator = '' -%}
+{%- for file in public_files -%}
+  {%- assign prefix = file.path | slice: 0, 8 -%}
+  {%- if prefix == '/public/' -%}
+    {{- separator -}}{"path":{{ file.path | remove_first: '/public/' | jsonify | replace: '<', '\u003c' }},"modified":{{ file.modified_time | date: '%Y-%m-%d %H:%M' | jsonify }}}
+    {%- assign separator = ',' -%}
+  {%- endif -%}
+{%- endfor -%}
+]</script>
 <script>
-const $ = id => document.getElementById(id);
-let resources = [];
-let loaded = false;
-try { resources = JSON.parse($('resource-data').textContent); loaded = true; }
-catch { /* The page must be rendered by Jekyll before serving. */ }
-const types = {image:['png','jpg','jpeg','gif','webp','svg','avif','ico','bmp'],video:['mp4','webm','ogv','mov'],audio:['mp3','wav','ogg','m4a','flac','aac'],text:['txt','md','json','csv','tsv','js','ts','jsx','tsx','css','html','xml','yml','yaml','py','sh','log','sql'],pdf:['pdf']};
-const labels = {image:'图片',video:'视频',audio:'音频',text:'文本 / 代码',pdf:'PDF',other:'其他文件'};
-const extension = path => path.split('/').pop().split('.').slice(1).pop()?.toLowerCase() || '';
-const category = path => Object.keys(types).find(type => types[type].includes(extension(path))) || 'other';
-const url = path => 'public/' + path.split('/').map(encodeURIComponent).join('/');
-function element(tag,text,className){const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(className)el.className=className;return el;}
-let folder='';let controller;
-$('stats').textContent=resources.length+' 个文件';
-function navigate(path){folder=path;render();}
-function render(){
- const query=$('search').value.trim().toLowerCase(), filter=$('type').value;
- const searching=Boolean(query)||filter!=='all';
- $('breadcrumbs').replaceChildren();
- const root=element('button','public');root.onclick=()=>navigate('');$('breadcrumbs').append(root);
- let accumulated='';for(const part of folder.split('/').filter(Boolean)){accumulated+=part+'/';const path=accumulated;const button=element('button',part);button.onclick=()=>navigate(path);$('breadcrumbs').append(element('span','/'),button);}
- const matching=resources.filter(file=>file.path.startsWith(folder)&&file.path.toLowerCase().includes(query)&&(filter==='all'||category(file.path)===filter));
- const dirs=new Set();const entries=[];
- for(const file of matching){const relative=file.path.slice(folder.length);if(!searching&&relative.includes('/')){dirs.add(relative.split('/')[0]);}else entries.push({...file,name:relative});}
- entries.sort((a,b)=>($('sort').value==='reverse'?-1:1)*a.name.localeCompare(b.name,'zh-CN'));
- $('files').replaceChildren();
- for(const dir of [...dirs].sort((a,b)=>a.localeCompare(b,'zh-CN')))addRow({name:dir,path:folder+dir+'/'},true);
- for(const file of entries)addRow(file,false);
- $('empty').hidden=entries.length+dirs.size>0;
- $('empty').textContent=!loaded?'请通过 Jekyll 或 GitHub Pages 访问此页面，以自动读取 public 目录。':resources.length===0?'public 文件夹中还没有资源。':'没有找到匹配的资源，试试其他关键词或类型。';
- $('count').textContent=dirs.size+' 个文件夹 · '+entries.length+' 个文件';
-}
-function addRow(file,isFolder){
- const row=element('tr');const nameCell=element('td');const button=element('button',undefined,'file-name');button.append(element('span',isFolder?'DIR':extension(file.path).toUpperCase()||'FILE','file-icon'),element('span',file.name,'name'));button.title=file.name;button.onclick=()=>isFolder?navigate(file.path):preview(file);nameCell.append(button);
- const actions=element('td');const group=element('div',undefined,'actions');
- const view=element('button',isFolder?'浏览 →':'预览');view.onclick=button.onclick;group.append(view);
- if(!isFolder){const download=element('a','下载');download.href=url(file.path);download.download=file.name.split('/').pop();group.append(download);}
- actions.append(group);row.append(nameCell,element('td',isFolder?'文件夹':labels[category(file.path)],'type-col muted'),actions);$('files').append(row);
-}
-async function preview(file){
- controller?.abort();controller=new AbortController();const signal=controller.signal;
- const target=$('preview');target.replaceChildren();$('preview-title').textContent=file.name;$('open').href=$('download').href=url(file.path);$('download').download=file.path.split('/').pop();$('dialog').showModal();
- const type=category(file.path);
- if(type==='text'){
-  target.append(element('p','正在加载…'));
-  try{const response=await fetch(url(file.path),{signal});if(!response.ok)throw new Error('load');const reader=response.body.getReader();
-   const chunks=[];let bytes=0;
-   while(true){const {done,value}=await reader.read();if(done)break;bytes+=value.byteLength;
-    if(bytes>2*1024*1024){await reader.cancel();if(!signal.aborted)target.replaceChildren(element('p','文件超过 2 MB，请打开原文件或下载查看。'));return;}
-    chunks.push(value);
-   }
-   const text=await new Blob(chunks).text();if(!signal.aborted)target.replaceChildren(element('pre',text));}
-  catch(error){if(error.name!=='AbortError')target.replaceChildren(element('p','无法加载预览。请打开原文件，或通过 HTTP 服务访问本站。'));}
- }else if(['image','video','audio'].includes(type)){
-  const media=element(type==='image'?'img':type);if(type==='image')media.alt=file.name;else media.controls=true;
-  media.onerror=()=>target.replaceChildren(element('p','浏览器无法预览该资源，请下载后查看。'));media.src=url(file.path);target.append(media);
- }else if(type==='pdf'){const frame=element('iframe');frame.title=file.name;frame.src=url(file.path);target.append(frame);}
- else target.append(element('p','此类型暂不支持在线预览，可打开原文件或下载后查看。'));
-}
-$('close').onclick=()=>$('dialog').close();
-$('dialog').addEventListener('close',()=>{controller?.abort();$('preview').replaceChildren();});
-$('search').addEventListener('input',render);$('type').addEventListener('change',render);$('sort').addEventListener('change',render);render();
+(() => {
+  const listing = document.getElementById('listing');
+  const status = document.getElementById('status');
+  let files;
+  try { files = JSON.parse(document.getElementById('resource-data').textContent); }
+  catch {
+    listing.replaceChildren();
+    status.hidden = false;
+    status.textContent = '目录尚未生成，请通过 GitHub Pages / Jekyll 访问。';
+    return;
+  }
+  function addRow(name, href, modified) {
+    const row = document.createElement('tr');
+    const cell = document.createElement('td');
+    const link = document.createElement('a');
+    link.textContent = name;
+    link.href = href;
+    cell.append(link);
+    const date = document.createElement('td');
+    date.textContent = modified || '—';
+    row.append(cell, date);
+    listing.append(row);
+  }
+  function render() {
+    let folder;
+    try { folder = decodeURIComponent(location.hash.slice(1)); }
+    catch { folder = ''; }
+    if (folder && !folder.endsWith('/')) folder += '/';
+    const title = 'Index of /public/' + folder;
+    document.title = title;
+    document.getElementById('heading').textContent = title;
+    listing.replaceChildren();
+    if (folder) {
+      const parent = folder.split('/').slice(0, -2).join('/');
+      addRow('../', '#' + encodeURIComponent(parent ? parent + '/' : ''));
+    }
+    const directories = new Set();
+    const children = [];
+    for (const file of files) {
+      if (!file.path.startsWith(folder)) continue;
+      const name = file.path.slice(folder.length);
+      if (name.includes('/')) directories.add(name.split('/')[0]);
+      else children.push({ ...file, name });
+    }
+    for (const name of [...directories].sort()) {
+      addRow(name + '/', '#' + encodeURIComponent(folder + name + '/'));
+    }
+    for (const file of children.sort((a, b) => a.name.localeCompare(b.name))) {
+      addRow(file.name, 'public/' + file.path.split('/').map(encodeURIComponent).join('/'), file.modified);
+    }
+    status.hidden = Boolean(directories.size || children.length);
+    status.textContent = '此目录为空。';
+  }
+  window.addEventListener('hashchange', render);
+  render();
+})();
 </script>
 </body>
 </html>

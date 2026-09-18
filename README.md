@@ -1,7 +1,7 @@
 # blog
 
-首页自动列出 public/ 下的文件和子文件夹，支持搜索、类型筛选、名称排序、预览和下载。
+首页是镜像站风格的 `public/` 目录列表：显示文件名、修改时间，点击文件直接访问，点击文件夹进入，`../` 返回上级。
 
-将资源放入 public/ 并提交到 GitHub Pages 的发布分支即可。Jekyll 在每次部署时自动读取目录，不需要 Python、手动清单或额外生成命令。
+把文件放到 `public/`，提交到 GitHub Pages 发布分支即可。Jekyll 在部署时自动收集资源，无需 Python 或手动维护清单。修改时间来自部署时的文件时间。
 
-页面依赖 Jekyll 模板渲染，请通过 GitHub Pages 访问。本地调试使用 jekyll serve；直接双击 HTML 或普通静态服务器不会执行目录扫描。Jekyll 默认忽略的隐藏文件不会出现在列表中。
+`index.html` 开头的 YAML front matter（两行 `---` 及其中的配置）必须保留，否则 GitHub Pages 不会处理目录模板。直接双击 HTML 或普通静态服务器不会执行 Jekyll 模板；本地预览可用 `jekyll serve`。
